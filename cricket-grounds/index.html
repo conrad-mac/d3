@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Cricket Grounds - d3js</title>
+
+  <script src="http://d3js.org/d3.v4.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"</script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet">
+  <style>
+
+    h1, h3 {
+      font-family: 'IM Fell English SC', serif;
+      padding-left: 5%;
+      padding-bottom: 0.5%;
+    }
+
+    p {
+      font-family: 'Old Standard TT', serif;
+      padding-left: 5%;
+      padding-right: 10%;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container-fluid">
+
+    <div class="row">
+      <h1>Cricket Grounds Around the World (with d3js)</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+        ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+        est laborum.
+      </p>
+    </div>
+
+    <div class="row country-NZ">]
+        <h3>Cricket grounds in New Zealand</h2>
+    </div>
+
+    <div class="row country-Aus">
+      <h3>Cricket grounds in Australia</h2>
+    </div>
+
+    <div class="row country-UK">
+      <h3>Cricket grounds in the UK</h2>
+    </div>
+
+    <div class="row country-SA">
+      <h3>Cricket grounds in South Africa</h2>
+    </div>
+  </div>
+
+  <script>
+    "use strict";
+
+    var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+    var groundHeight = 90;
+    var groundWidth = 75;
+    var heightPadding = 20;
+
+    var rheight = d3.scaleLinear()
+    .rangeRound([0, groundHeight]);
+
+    var rwidth = d3.scaleLinear()
+    .rangeRound([0, groundWidth]);
+
+    function appendGrounds(countryID) {
+
+      d3.csv("data.csv", type, function(error, data) {
+        if (error) throw error;
+
+        rheight.domain([0, d3.max(data, function(d) { return d.height; })]);
+        rwidth.domain([0, d3.max(data, function(d) { return d.width; })]);
+
+        var mainContainer = d3.select("div.country-" + countryID)
+
+        var filteredData = data.filter(function(d){return d.country == countryID});
+
+        var divContainer = mainContainer.selectAll(".groundDiv")
+        .data(filteredData)
+        .enter().append("div")
+        .attr("class", "col-md-3 groundDiv")
+        .style("height", (groundHeight * 2) + heightPadding + "px")
+        .append("svg")
+        .attr("width", "100%")
+        .attr("height", "100%");
+
+        var fieldContainer = divContainer.append("g")
+        .attr("transform", "translate(150,100)")
+        .append("ellipse")
+        .attr("class", "ground")
+        .attr("cx", 0)
+        .attr("cy", 0)
+        .attr("rx", function(d) { return rwidth(d.width); })
+        .attr("ry", function(d) { return rheight(d.height); })
+        .attr("fill", "#397D02");
+
+        var boundaryContainer = divContainer.append("g")
+        .attr("transform", "translate(150,100)")
+        .append("ellipse")
+        .attr("class", "boundary")
+        .attr("cx", 0)
+        .attr("cy", 0)
+        .attr("rx", function(d) { return rwidth(d.width) - 3; })
+        .attr("ry", function(d) { return rheight(d.height) - 3; })
+        .attr("fill", "none")
+        .attr("stroke", "white")
+        .attr("stroke-width", 1.5)
+        .attr("opacity", 0)
+        .transition().duration(2000).delay(0)
+        .attr("opacity", 1);
+
+        var pitchContainer = divContainer.append("g")
+        .attr("transform", "translate(150,100)")
+        .append("rect")
+        .attr("class", "pitch")
+        .attr("x", "-1.5%")
+        .attr("y", "-3%")
+        .attr("width", "10px")
+        .attr("height", "20px")
+        .attr("fill", "#ad5b47")
+        .attr("opacity", 0)
+        .transition().duration(2000).delay(500)
+        .attr("opacity", 1);
+
+        var groundText = divContainer.append("g")
+        .attr("transform", "translate(150,100)")
+        .append("text")
+        .attr("x", 0)
+        .attr("y", "25%")
+        .text(function(d) {return d.ground})
+        .attr("dy", "-1.5em")
+        .attr("font-family", "sans-serif")
+        .attr("font-size", "10px")
+        .attr("fill", "white")
+        .attr("text-anchor", "middle")
+        .attr("opacity", 0)
+        .transition().duration(2000).delay(1000)
+        .attr("opacity", 1);
+
+
+      });
+    };
+
+      function type(d) {
+        d.height = +d.height;
+        d.width = +d.width;
+        return d;
+      };
+
+      var countries = ["NZ", "Aus", "SA", "UK"];
+
+      for (var i = 0; i < countries.length; i++){
+        appendGrounds(countries[i]);
+      }
+
+  </script>
+</body>
+</html>
