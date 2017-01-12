@@ -24,6 +24,19 @@
       padding-left: 5%;
       padding-right: 10%;
     }
+    div.tooltip {
+      position: absolute;
+      text-align: center;
+      /*width: 120px;
+      height: 120px;*/
+      padding: 2px;
+      border-radius: 50%;
+      font: 12px sans-serif;
+      background: darkred;
+      color: white;
+      /*border: 1px solid steelblue;*/
+      pointer-events: none;
+    }
 
   </style>
 </head>
@@ -78,6 +91,10 @@
     var rwidth = d3.scaleLinear()
     .rangeRound([0, groundWidth]);
 
+    var tooltip = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
     function appendGrounds(countryID) {
 
       d3.csv("data.csv", type, function(error, data) {
@@ -107,7 +124,30 @@
         .attr("cy", 0)
         .attr("rx", function(d) { return rwidth(d.width); })
         .attr("ry", function(d) { return rheight(d.height); })
-        .attr("fill", "#397D02");
+        .attr("fill", "#397D02")
+        .on("mouseover", function(d){
+          tooltip.style("left", (d3.event.pageX) + "px")
+          .style("top", (d3.event.pageY - 28) + "px")
+          .style("width", "20px")
+          .style("height", "20px")
+          .transition()
+          .duration(1000)
+          .style("opacity", 0.9)
+          .transition().delay(100).duration(2000)
+          .style("left", (d3.event.pageX + 50) + "px")
+          .style("top", (d3.event.pageY - 78) + "px")
+          .style("width", "120px")
+          .style("height", "120px");
+
+          tooltip.html(d.ground);
+        })
+       .on("mouseout", function(d) {
+         tooltip.transition()
+           .duration(100)
+           .style("opacity", 0)
+           .style("width", "20px")
+           .style("height", "20px");
+         })
 
         var boundaryContainer = divContainer.append("g")
         .attr("transform", "translate(150,100)")
