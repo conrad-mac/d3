@@ -11,4 +11,5 @@ It was surprisingly difficult to find the dimensions of cricket grounds on the w
 - Add more of a story/narrative (including the official rules for cricket ground sizes)
 - Update the 'pitch' element to be more dynamic
 - Change grass colours depending on country?
-- Mouse-over animations?
+- Tidy up the 'cricket ball' tooltips. Maybe make them 'come out' of the pitch instead of the field? Display info about the ground (capacity, fun fact?)
+- Tidy up the bootstrap fluidity (add a col-xs class?)
