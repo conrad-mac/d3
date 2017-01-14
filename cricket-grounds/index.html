@@ -175,7 +175,7 @@
           .style("height", "1px")
           .transition()
           // .duration(1000)
-          .transition().duration(2000)
+          .transition().ease(d3.easeElastic).duration(2000)
           .style("opacity", 0.9)
           .style("display", "display")
           .style("left", (d3.event.pageX + 50) + "px")
