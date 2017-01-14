@@ -6,10 +6,10 @@ Using d3js to show the shapes and sizes of cricket grounds around the world.
 It was surprisingly difficult to find the dimensions of cricket grounds on the web. I measured the majority myself using the 'Measure distance' option in Google Maps.
 
 ###Still to do
-- Finish collecting data for more grounds
+- Finish collecting data for all major grounds
 - At the moment, all grounds are `<ellipse>` elements. Some grounds (in real life) look more like rounded rectangles (e.g. Lord's). I plan to set a conditional 'if' in JS to set those that look rectangular as `<rect>` elements.
 - Add more of a story/narrative (including the official rules for cricket ground sizes)
 - Update the 'pitch' element to be more dynamic
-- Change grass colours depending on country?
-- Tidy up the 'cricket ball' tooltips. Maybe make them 'come out' of the pitch instead of the field? Display info about the ground (capacity, fun fact?)
-- Tidy up the bootstrap fluidity (add a col-xs class?)
+- Change grass colours depending on country/climate?
+- Finish off the 'cricket ball' tooltips. Display info about the ground (capacity, fun fact?)
+- Add personal footer with link to code etc

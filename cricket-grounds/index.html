@@ -24,6 +24,7 @@
       padding-left: 5%;
       padding-right: 10%;
     }
+
     div.tooltip {
       position: absolute;
       text-align: center;
@@ -45,32 +46,46 @@
   <div class="container-fluid">
 
     <div class="row">
-      <h1>Cricket Grounds Around the World (with d3js)</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-        ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-        est laborum.
-      </p>
+      <div class="col-md-12">
+
+        <h1>Cricket Grounds Around the World (with d3js)</h2>
+        <h3>Context</h3>
+        <p>
+          This visualisation uses <a href="https://d3js.org"> D3js </a> to draw the shapes and sizes of cricket grounds from around the world.
+        </p>
+        <h3>Data</h3>
+        <p>
+          The data points that feed in to each SVG image consist of <code>ground length</code>, <code>ground width</code> and <code>ground name</code>. It was surprisingly difficult to find the dimensions of cricket grounds on the internet. I manually measured the majority of grounds myself using the 'measure distance' option in Google Maps.
+        </p>
+        <h3>Interactivity</h3>
+        <p>
+          To show a fun fact (?) about each ground, hover over the pitch (located in the centre of the ground).
+        </p>
+      </div>
     </div>
 
-    <div class="row country-NZ">]
-        <h3>Cricket grounds in New Zealand</h2>
+    <div class="row country-NZ">
+      <div class="col-md-12">
+          <h3>Cricket grounds in New Zealand</h2>
+      </div>
     </div>
 
     <div class="row country-Aus">
-      <h3>Cricket grounds in Australia</h2>
+      <div class="col-md-12">
+          <h3>Cricket grounds in Australia</h2>
+      </div>
     </div>
 
     <div class="row country-UK">
-      <h3>Cricket grounds in the UK</h2>
+      <div class="col-md-12">
+          <h3>Cricket grounds in the UK</h2>
+      </div>
     </div>
 
     <div class="row country-SA">
-      <h3>Cricket grounds in South Africa</h2>
+      <div class="col-md-12">
+          <h3>Cricket grounds in South Africa</h2>
+      </div>
     </div>
   </div>
 
@@ -125,29 +140,6 @@
         .attr("rx", function(d) { return rwidth(d.width); })
         .attr("ry", function(d) { return rheight(d.height); })
         .attr("fill", "#397D02")
-        .on("mouseover", function(d){
-          tooltip.style("left", (d3.event.pageX) + "px")
-          .style("top", (d3.event.pageY - 28) + "px")
-          .style("width", "20px")
-          .style("height", "20px")
-          .transition()
-          .duration(1000)
-          .style("opacity", 0.9)
-          .transition().delay(100).duration(2000)
-          .style("left", (d3.event.pageX + 50) + "px")
-          .style("top", (d3.event.pageY - 78) + "px")
-          .style("width", "120px")
-          .style("height", "120px");
-
-          //tooltip.html(d.ground);
-        })
-       .on("mouseout", function(d) {
-         tooltip.transition()
-           .duration(100)
-           .style("opacity", 0)
-           .style("width", "20px")
-           .style("height", "20px");
-         })
 
         var boundaryContainer = divContainer.append("g")
         .attr("transform", "translate(150,100)")
@@ -173,9 +165,39 @@
         .attr("width", "10px")
         .attr("height", "20px")
         .attr("fill", "#ad5b47")
-        .attr("opacity", 0)
-        .transition().duration(2000).delay(500)
-        .attr("opacity", 1);
+        .attr("opacity", 1)
+        // .transition().duration(2000).delay(500)
+        // .attr("opacity", 1)
+        .on("mouseover", function(d){
+          tooltip.style("left", (d3.event.pageX - 5) + "px")
+          .style("top", (d3.event.pageY - 5) + "px")
+          .style("width", "1px")
+          .style("height", "1px")
+          .transition()
+          // .duration(1000)
+          .transition().duration(2000)
+          .style("opacity", 0.9)
+          .style("display", "display")
+          .style("left", (d3.event.pageX + 50) + "px")
+          .style("top", (d3.event.pageY - 78) + "px")
+          .style("width", "140px")
+          .style("height", "140px")
+          .on("end", function(){
+            tooltip.html("<div class='tooltipText'><h4>Fact</h4> <p>In 1985, this ground...</p><div>")
+          });
+        })
+       .on("mouseout", function(d) {
+         tooltip.transition()
+           .duration(100)
+           .style("left", (d3.event.pageX - 5) + "px")
+           .style("top", (d3.event.pageY - 5) + "px")
+           .style("opacity", 0)
+           .style("width", "1px")
+           .style("height", "1px");
+
+           tooltip.selectAll(".tooltipText").remove();
+         })
+;
 
         var groundText = divContainer.append("g")
         .attr("transform", "translate(150,100)")
@@ -195,7 +217,6 @@
 
       });
     };
-
       function type(d) {
         d.height = +d.height;
         d.width = +d.width;
