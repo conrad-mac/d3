@@ -1,21 +1,30 @@
-ground,ground_long,country,height,width,url,notes
-Adelaide Oval,Adelaide Oval,Aus,166.1,127.1,https://maps.google.com,
-Basin Reserve,Basin Reserve,NZ,148.1,146.8,https://maps.google.com,
-Bay Oval,Bay Oval,NZ,144,144,https://maps.google.com,
-Cobham Oval,Cobham Oval,NZ,148,152,https://maps.google.com,
-Eden Park,Eden Park,NZ,136.6,108,https://maps.google.com,Looks more like a rounded rectangle...
-Hagley Oval,Hagley Oval,NZ,149,149,https://en.wikipedia.org/wiki/Hagley_Oval#Ground_specifications,
-Lord's,Lord's Cricket Ground,UK,157.6,130.5,https://maps.google.com,Looks more like a rounded rectangle...
-MCG,Melbourne Cricket Ground,Aus,147.8,172.9,http://www.espncricinfo.com/ci/content/ground/56441.html,
-McLean Park,McLean Park,NZ,163,125,https://maps.google.com,
-Newlands Park,Newlands Cricket Ground,SA,134.4,132.3,https://maps.google.com,Looks more like a rounded rectangle...
-Old Trafford,Old Trafford Cricket Ground,UK,144.6,147.1,https://maps.google.com,Looks more like a rounded rectangle...
-Saxton Oval,Saxton Oval,NZ,141,141,https://maps.google.com,
-SCG,Sydney Cricket Ground,Aus,156,154,http://www.espncricinfo.com/ci/content/ground/56544.html,
-Seddon Park,Seddon Park,NZ,128.73,135.94,https://maps.google.com,
-St George's Park,St George's Park Cricket Ground ,SA,139.8,131.6,https://maps.google.com,Looks more like a rounded rectangle...
-The Oval,"The Oval, London",UK,138,145,https://maps.google.com,
-University Oval,University Oval,NZ,118.7,131.5,https://maps.google.com,
-WACA,Western Australia Cricket Association Ground ,Aus,149,139,http://www.espncricinfo.com/ci/content/ground/56490.html,
-Westpac Stadium,Westpac Stadium,NZ,155.3,123.5,http://westpacstadium.co.nz/about-us/stadium-facts/,Calculated as (65.7m + 57.8m) for width and (77.3m + 78m) for height
-Trent Bridge,Trent Bridge,UK,146.3,144.74,https://maps.google.com,Weird shape
+ground,ground_long,country,height,width,rounded_rect,url,notes
+Adelaide Oval,Adelaide Oval,Aus,166.1,127.1,0,https://maps.google.com,
+Basin Reserve,Basin Reserve,NZ,148.1,146.8,0,https://maps.google.com,
+Bay Oval,Bay Oval,NZ,144,144,0,https://maps.google.com,
+Cobham Oval,Cobham Oval,NZ,148,152,0,https://maps.google.com,
+Eden Park,Eden Park,NZ,136.6,108,1,https://maps.google.com,Looks more like a rounded rectangle...
+Hagley Oval,Hagley Oval,NZ,149,149,0,https://en.wikipedia.org/wiki/Hagley_Oval#Ground_specifications,
+Lord's,Lord's Cricket Ground,UK,157.6,130.5,1,https://maps.google.com,Looks more like a rounded rectangle...
+MCG,Melbourne Cricket Ground,Aus,147.8,172.9,0,http://www.espncricinfo.com/ci/content/ground/56441.html,
+McLean Park,McLean Park,NZ,163,125,0,https://maps.google.com,
+Newlands Park,Newlands Cricket Ground,SA,134.4,132.3,1,https://maps.google.com,Looks more like a rounded rectangle...
+Old Trafford,Old Trafford Cricket Ground,UK,144.6,147.1,1,https://maps.google.com,Looks more like a rounded rectangle...
+Saxton Oval,Saxton Oval,NZ,141,141,0,https://maps.google.com,
+SCG,Sydney Cricket Ground,Aus,156,154,0,http://www.espncricinfo.com/ci/content/ground/56544.html,
+Seddon Park,Seddon Park,NZ,128.73,135.94,0,https://maps.google.com,
+St George's Park,St George's Park Cricket Ground ,SA,139.8,131.6,1,https://maps.google.com,Looks more like a rounded rectangle...
+The Oval,"The Oval, London",UK,138,145,0,https://maps.google.com,
+University Oval,University Oval,NZ,118.7,131.5,0,https://maps.google.com,
+WACA,Western Australia Cricket Association Ground ,Aus,149,139,0,http://www.espncricinfo.com/ci/content/ground/56490.html,
+Westpac Stadium,Westpac Stadium,NZ,155.3,123.5,0,http://westpacstadium.co.nz/about-us/stadium-facts/,Calculated as (65.7m + 57.8m) for width and (77.3m + 78m) for height
+Trent Bridge,Trent Bridge,UK,146.3,144.74,1,https://maps.google.com,Weird shape
+Gabba,Brisbane Cricket Ground,Aus,,,,,
+Bellerive Oval,Bellerive Oval,Aus,,,,,
+Headingley,Headingley Cricket Ground,UK,,,,,
+Edgbaston,Edgbaston Cricket Ground,UK,,,,,
+Riverside Ground,Riverside Ground,UK,,,,,
+AMI Stadium,AMI Stadium (formerly Jade Stadium and Lancaster Park),NZ,,,,,
+Kingsmead,Kingsmead Cricket Ground,SA,,,,,
+Wanderers,New Wanderers Stadium,SA,,,,,
+Centurion Park,Centurion Park,SA,,,,,
