@@ -13,3 +13,5 @@ It was surprisingly difficult to find the dimensions of cricket grounds on the w
 - Change grass colours depending on country/climate?
 - Finish off the 'cricket ball' tooltips. Display info about the ground (capacity, fun fact?)
 - Add personal footer with link to code etc
+- Double-check the scale and set up code
+- Maybe check out something like [this](http://bl.ocks.org/mpmckenna8/566509dd3d9a08e5f9b2) re. the area of the ellipses. Although this probably only matters for circles.
