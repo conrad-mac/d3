@@ -87,7 +87,37 @@
           <h3>Cricket grounds in South Africa</h2>
       </div>
     </div>
+
+    <div class="row country-SL">
+      <div class="col-md-12">
+          <h3>Cricket grounds in Sri Lanka</h2>
+      </div>
+    </div>
+
+    <div class="row country-Ind">
+      <div class="col-md-12">
+          <h3>Cricket grounds in India</h2>
+      </div>
+    </div>
+
+    <div class="row country-Ban">
+      <div class="col-md-12">
+          <h3>Cricket grounds in Bangladesh</h2>
+      </div>
+    </div>
+
+  <div class="row country-WI">
+    <div class="col-md-12">
+        <h3>Cricket grounds in the West Indies</h2>
+    </div>
   </div>
+
+  <div class="row country-Zim">
+    <div class="col-md-12">
+        <h3>Cricket grounds in Zimbabwe</h2>
+    </div>
+  </div>
+</div>
 
   <script>
     "use strict";
@@ -183,7 +213,7 @@
           .style("width", "140px")
           .style("height", "140px")
           .on("end", function(){
-            tooltip.html("<div class='tooltipText'><h4>Fact</h4> <p>In 1985, this ground...</p><div>")
+            tooltip.html("<div class='tooltipText'><h4>Fact</h4> <p>" + d.tooltipText + "</p><div>")
           });
         })
        .on("mouseout", function(d) {
@@ -223,7 +253,7 @@
         return d;
       };
 
-      var countries = ["NZ", "Aus", "SA", "UK"];
+      var countries = ["NZ", "Aus", "SA", "UK", "SL", "Ind", "WI", "Zim", "Ban"];
 
       for (var i = 0; i < countries.length; i++){
         appendGrounds(countries[i]);
