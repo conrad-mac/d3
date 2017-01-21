@@ -17,3 +17,4 @@ It was surprisingly difficult to find the dimensions of cricket grounds on the w
 - Maybe check out something like [this](http://bl.ocks.org/mpmckenna8/566509dd3d9a08e5f9b2) re. the area of the ellipses. Although this probably only matters for circles.
 - Sort grounds alphabetically in the JS code
 - Perhaps add a drop-down to choose each country instead of having them all on the same page.
+- Maybe add a subtle background colour or pattern
