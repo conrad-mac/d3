@@ -9,14 +9,17 @@
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"</script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC" rel="stylesheet"> -->
   <!-- <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet"> -->
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet">
+
   <style>
 
     h1, h3 {
-      font-family: 'IM Fell English SC', serif;
+      /*font-family: 'IM Fell English SC', serif;*/
+      font-family: 'Cormorant Garamond', serif;
       /*padding-left: 5%;
       padding-bottom: 0.5%;*/
     }
@@ -39,7 +42,7 @@
       height: 120px;*/
       padding: 2px;
       border-radius: 50%;
-      font: 12px sans-serif;
+      font: 10px sans-serif;
       background: darkred;
       color: white;
       /*border: 1px solid steelblue;*/
@@ -55,7 +58,7 @@
     <div class="row">
       <div class="col-md-12">
 
-        <h1>Cricket Grounds Around the World (with d3js)</h2>
+        <h1>Cricket Grounds Around the World (with D3.js)</h2>
         <h3>Context</h3>
         <p>
           This visualisation uses <a href="https://d3js.org"> D3js </a> to draw the shapes and sizes of cricket grounds from around the world.
@@ -66,7 +69,9 @@
         </p>
         <h3>Interactivity</h3>
         <p>
-          To show a fact about each ground, click on the pitch (located in the centre of the ground).
+          To show Test Match batting and bowling records for each ground, hover over the pitch (or 'click' if on mobile device). Where a
+          ground hasn't hosted a test match, ODI records are used. All statistics are sourced from
+          <a href="http://www.howstat.com">www.howstat.com</a>.
         </p>
       </div>
     </div>
@@ -171,7 +176,7 @@
         var divContainer = mainContainer.selectAll(".groundDiv")
         .data(filteredData)
         .enter().append("div")
-        .attr("class", "col-md-3 groundDiv")
+        .attr("class", "col-md-4 groundDiv")
         .style("height", (groundHeight * 2) + heightPadding + "px")
         .append("svg")
         .attr("width", "100%")
@@ -214,22 +219,28 @@
         .attr("opacity", 1)
         // .transition().duration(2000).delay(500)
         // .attr("opacity", 1)
-        .on("click", function(d){
+        .on("mouseover", function(d){
           tooltip.style("left", (d3.event.pageX - 5) + "px")
           .style("top", (d3.event.pageY - 5) + "px")
           .style("width", "1px")
           .style("height", "1px")
           .transition()
           // .duration(1000)
-          .transition().ease(d3.easeElastic).duration(2000)
+          .transition().ease(d3.easeBounce).duration(1000)
           .style("opacity", 0.9)
           .style("display", "display")
           .style("left", (d3.event.pageX + 50) + "px")
           .style("top", (d3.event.pageY - 78) + "px")
-          .style("width", "140px")
-          .style("height", "140px")
+          .style("width", "160px")
+          .style("height", "160px")
           .on("end", function(){
-            tooltip.html("<div class='tooltipText'><h4>Fact</h4> <p>" + d.tooltipText + "</p><div>")
+            tooltip.html(
+              "<div class='tooltipText'><h5>Batting</h5> <p>" +
+              d.batting_record_name + " (" + d.batting_record_country + ")" + "</p>" +
+              "<p>" + d.batting_record_score + "</p>" +
+              "<h5>Bowling</h5> <p>" + d.bowling_record_name + " (" + d.bowling_record_country + ")" + "</p>" +
+              "<p>" + d.bowling_record_figures + "</p>" +
+               "<div>")
           });
         })
        .on("mouseout", function(d) {
