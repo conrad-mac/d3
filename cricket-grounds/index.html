@@ -6,7 +6,8 @@
   <title>Cricket Grounds - d3js</title>
 
   <script src="https://d3js.org/d3.v4.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js"</script>
+  <!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"</script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <!-- <link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC" rel="stylesheet"> -->
@@ -17,9 +18,17 @@
 
   <style>
 
-    h1, h3 {
+    h1, h3{
       /*font-family: 'IM Fell English SC', serif;*/
       font-family: 'Cormorant Garamond', serif;
+      /*padding-left: 5%;
+      padding-bottom: 0.5%;*/
+    }
+
+    .panel-title {
+      /*font-family: 'IM Fell English SC', serif;*/
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
       /*padding-left: 5%;
       padding-bottom: 0.5%;*/
     }
@@ -58,7 +67,7 @@
     <div class="row">
       <div class="col-md-12 jumbotron">
 
-        <h1>Cricket Grounds Around the World (with D3.js)</h2>
+        <h1>Cricket Grounds Around the World</h2>
         <h3>Context</h3>
         <p>
           This visualisation uses <a href="https://d3js.org"> D3js </a> to draw the shapes and sizes of cricket grounds from around the world.
@@ -76,13 +85,162 @@
       </div>
     </div>
 
-    <div class="row country-NZ">
+    <div class="panel-group" id="accordion">
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseNZ">New Zealand</a>
+          </h3>
+        </div>
+        <div id="collapseNZ" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="row country-NZ">
+              <div class="col-md-12">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseAus">Australia</a>
+          </h3>
+        </div>
+        <div id="collapseAus" class="panel-collapse collapse">
+          <div class="panel-body">
+            <div class="row country-Aus">
+              <div class="col-md-12">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseUK">UK</a>
+          </h3>
+        </div>
+        <div id="collapseUK" class="panel-collapse collapse">
+          <div class="panel-body">
+            <div class="row country-UK">
+              <div class="col-md-12">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseSA">South Africa</a>
+          </h3>
+        </div>
+        <div id="collapseSA" class="panel-collapse collapse">
+          <div class="panel-body">
+            <div class="row country-SA">
+              <div class="col-md-12">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseSL">Sri Lanka</a>
+          </h3>
+        </div>
+        <div id="collapseSL" class="panel-collapse collapse">
+          <div class="panel-body">
+            <div class="row country-SL">
+              <div class="col-md-12">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseInd">India</a>
+          </h3>
+        </div>
+        <div id="collapseInd" class="panel-collapse collapse">
+          <div class="panel-body">
+            <div class="row country-Ind">
+              <div class="col-md-12">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseBan">Bangladesh</a>
+          </h3>
+        </div>
+        <div id="collapseBan" class="panel-collapse collapse">
+          <div class="panel-body">
+            <div class="row country-Ban">
+              <div class="col-md-12">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseWI">West Indies</a>
+          </h3>
+        </div>
+        <div id="collapseWI" class="panel-collapse collapse">
+          <div class="panel-body">
+            <div class="row country-WI">
+              <div class="col-md-12">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseZim">Zimbabwe</a>
+          </h3>
+        </div>
+        <div id="collapseZim" class="panel-collapse collapse">
+          <div class="panel-body">
+            <div class="row country-Zim">
+              <div class="col-md-12">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- <div class="row country-NZ">
       <div class="col-md-12">
           <h3>Cricket grounds in New Zealand</h2>
       </div>
-    </div>
+    </div> -->
 
-    <div class="row country-Aus">
+    <!-- <div class="row country-Aus">
       <div class="col-md-12">
           <h3>Cricket grounds in Australia</h2>
       </div>
@@ -104,15 +262,15 @@
       <div class="col-md-12">
           <h3>Cricket grounds in Sri Lanka</h2>
       </div>
-    </div>
+    </div> -->
 
-    <div class="row country-Ind">
+    <!-- <div class="row country-Ind">
       <div class="col-md-12">
           <h3>Cricket grounds in India</h2>
       </div>
-    </div>
+    </div> -->
 
-    <div class="row country-Ban">
+    <!-- <div class="row country-Ban">
       <div class="col-md-12">
           <h3>Cricket grounds in Bangladesh</h2>
       </div>
@@ -128,7 +286,8 @@
     <div class="col-md-12">
         <h3>Cricket grounds in Zimbabwe</h2>
     </div>
-  </div>
+  </div> -->
+
   <div class="credit">
     <p>This visualisation was created by
       <a href="https://conrad-mac.github.io">
